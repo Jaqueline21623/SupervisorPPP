@@ -1,0 +1,25 @@
+server:
+  port: 8087
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
+
+
+spring:
+  cloud:
+
+
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: ms-supervisor-service
+          uri: lb://ms-supervisor-service
+          predicates:
+            - Path=/supervisor/**

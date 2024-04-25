@@ -1,0 +1,17 @@
+server:
+  port: 7071
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Jaqueline21623/SupervisorPPP.git
+          searchPaths: config-data
+          default-label: main
+  security:
+    user:
+      password: 123456
+      name: root
